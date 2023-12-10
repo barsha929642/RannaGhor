@@ -1,0 +1,117 @@
+<nav
+  class="navbar navbar-dark navbar-expand-xl sticky-top"
+  style="background-color: transparent"
+>
+  <div class="container">
+    <img
+      style="width: 5rem; scale: calc(110%)"
+      src="./assets/logo.png"
+      alt=""
+      class="me-2"
+    />
+    <a
+      class="navbar-brand nav-link fs-4 fw-bold mx-4"
+      style="
+        font-family: 'CharukolaUltraLight', Arial, sans-serif;
+        color: #fffbed !important;
+      "
+      href="/"
+    >
+      রান্নাঘর
+    </a>
+    <button
+      class="navbar-dark navbar-toggler navbar-toggler-icon p-3 navt"
+      style="scale: calc(95%)"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    ></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="align-items: center">
+        <li class="nav-item">
+          <a class="nav-link mx-4 navi" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-4 navi" href="/favorites.php">Favorites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-4 navi" href="/addrecipe.php">Add Recipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-4 navi" href="/about.php">About</a>
+        </li>
+      </ul>
+      <!-- <form class="d-flex" role="search">
+        <input
+          class="form-control search-click me-2"
+          type="search"
+          id="searchBox"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button
+          class="float-left btn icn1 bi bi-search px-4"
+          type="submit"
+        ></button>
+      </form> -->
+      <ul id="notLogged" class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link ms-4 navi" href="/login.php">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link ms-4 navi" href="/signup.php">Register</a>
+        </li>
+      </ul>
+
+      <ul id="logged" class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link ms-4 navi" href="/profile.php">My Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light ms-3" id="logout">
+            <i class="bi bi-box-arrow-right"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Handling register/login button for logged users
+  const logged = document.getElementById("logged");
+  const notLogged = document.getElementById("notLogged");
+
+  if (document.cookie.indexOf("id") != -1) {
+    notLogged.classList.add("d-none");
+  } else {
+    logged.classList.add("d-none");
+  }
+
+  // handling logut
+  const logout = document.getElementById("logout");
+  logout.onclick = () => {
+    document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    location.reload();
+  };
+
+  // Handling live search
+  // const searchBox = document.getElementById("searchBox");
+  // searchBox.addEventListener("input", function () {
+  //   const query = searchBox.value;
+  //   console.log(query);
+  //   //   var xhttp = new XMLHttpRequest();
+  //   //   xhttp.onreadystatechange = function () {
+  //   //     if (this.readyState == 4 && this.status == 200) {
+  //   //       searchResults.innerHTML = this.responseText;
+  //   //     }
+  //   //   };
+  //   //   xhttp.open("GET", "search.php?q=" + query, true);
+  //   //   xhttp.send();
+  // });
+</script>
